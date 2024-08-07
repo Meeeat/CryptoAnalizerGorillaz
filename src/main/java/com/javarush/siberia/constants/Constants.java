@@ -36,4 +36,6 @@ public class Constants {
     public static final String ANALYSE_TXT = "Введите путь к зашифрованному файлу для анализа (или нажмите Enter для использования файла по умолчанию): ";
     public static final String ANALYSE_OUTPUT_TXT = "Введите путь для сохранения расшифрованного файла (или нажмите Enter для использования файла по умолчанию): ";
 
+
+    public static final double PERCENT_OF_TEXT_UNDERSTANDING = 80.0;
 }

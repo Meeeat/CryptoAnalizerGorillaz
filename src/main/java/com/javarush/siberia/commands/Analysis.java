@@ -60,6 +60,6 @@ public class Analysis implements Action {
             score += Math.abs(expectedFrequency - actualFrequency);
         }
 
-        return score < 80.0;
+        return score < Constants.PERCENT_OF_TEXT_UNDERSTANDING;
     }
 }
