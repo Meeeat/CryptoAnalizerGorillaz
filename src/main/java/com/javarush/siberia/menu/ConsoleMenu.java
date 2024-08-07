@@ -52,7 +52,7 @@ public class ConsoleMenu {
 
         String[] encodeArgs = {"encode", String.valueOf(encodeKey), encodeInputPath, encodeOutputPath};
         consoleApplication.run(encodeArgs);
-        System.out.println("Шифрование завершено.");
+        //System.out.println("Шифрование завершено.");
     }
 
     private void toDecode(Scanner scanner) {
@@ -76,7 +76,7 @@ public class ConsoleMenu {
 
         String[] decodeArgs = {"decode", String.valueOf(decodeKey), decodeInputPath, decodeOutputPath};
         consoleApplication.run(decodeArgs);
-        System.out.println("Дешифрование завершено.");
+        //System.out.println("Дешифрование завершено.");
     }
 
     private void toBruteForce(Scanner scanner) {
@@ -94,7 +94,7 @@ public class ConsoleMenu {
 
         String[] bruteForceArgs = {"bruteforce", bruteForceInputPath, bruteForceOutputPath};
         consoleApplication.run(bruteForceArgs);
-        System.out.println("Взлом завершен.");
+        //System.out.println("Взлом завершен.");
     }
 
     private void toAnalyse(Scanner scanner) {
@@ -112,6 +112,6 @@ public class ConsoleMenu {
 
         String[] analyseArgs = {"analysis", analyseInputPath, analyseOutputPath};
         consoleApplication.run(analyseArgs);
-        System.out.println("Анализ завершен.");
+        //System.out.println("Анализ завершен.");
     }
 }

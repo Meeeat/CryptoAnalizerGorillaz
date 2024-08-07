@@ -20,6 +20,7 @@ public class MainView {
         consoleApplication = new ConsoleApplication();
     }
 
+    //todo refactor class
     public void initFrame() {
         JFrame frame = new JFrame("CryptoApp");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,7 +33,7 @@ public class MainView {
         inputPanel.setLayout(new GridLayout(6, 2, 10, 10));
         inputPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        JLabel actionLabel = new JLabel("Выберите действие:");
+        JLabel actionLabel = new JLabel("Выберите действие:"); //todo refactor text
         JComboBox<String> actionComboBox = new JComboBox<>(new String[]{"encode", "decode", "bruteforce", "analysis"});
 
         JLabel keyLabel = new JLabel("Введите ключ (или оставьте пустым для сдвига по умолчанию):");
@@ -68,17 +69,17 @@ public class MainView {
         replacePanel.setLayout(new GridLayout(3, 2, 10, 10));
         replacePanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        JLabel replaceFromLabel = new JLabel("Заменить символ:");
+        JLabel replaceFromLabel = new JLabel("Replace symbol from: ");
         replaceFromField = new JTextField();
 
-        JLabel replaceToLabel = new JLabel("На символ:");
+        JLabel replaceToLabel = new JLabel("Replace symbol to: ");
         replaceToField = new JTextField();
 
-        JLabel savePathLabel = new JLabel("Введите путь для сохранения изменений:");
+        JLabel savePathLabel = new JLabel("Enter the path to save changes:");
         savePathField = new JTextField();
 
-        JButton replaceButton = new JButton("Заменить");
-        JButton saveButton = new JButton("Сохранить");
+        JButton replaceButton = new JButton("Replace");
+        JButton saveButton = new JButton("Save");
 
         replacePanel.add(replaceFromLabel);
         replacePanel.add(replaceFromField);
@@ -145,7 +146,7 @@ public class MainView {
             Result result = consoleApplication.run(params);
             resultArea.setText(result.toString());
         } catch (Exception ex) {
-            resultArea.setText("Ошибка: " + ex.getMessage() + "\n" + ex.toString());
+            resultArea.setText("Error: " + ex.getMessage() + "\n" + ex.toString());
         }
     }
 
@@ -168,9 +169,9 @@ public class MainView {
 
         try {
             java.nio.file.Files.write(java.nio.file.Paths.get(savePath), resultArea.getText().getBytes());
-            JOptionPane.showMessageDialog(null, "Изменения успешно сохранены!");
+            JOptionPane.showMessageDialog(null, "Changes saved successfully!");
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Ошибка сохранения: " + e.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Saving error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

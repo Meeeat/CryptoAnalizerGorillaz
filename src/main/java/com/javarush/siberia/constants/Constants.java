@@ -9,7 +9,7 @@ public class Constants {
     private static final String cym = "!@#$%^&*()_+-=*/.,<>[]{};:'\" `~";
 
     public static final char[] ALPHABET = (rus + rus.toLowerCase() + eng + eng.toLowerCase() + num + cym).toCharArray();
-    public static final String ALPHABET_LENGTH_TXT = "Текущая длина алфавита: " + ALPHABET.length + " символов.";
+    public static final String ALPHABET_LENGTH_TXT = "Current alphabet length: " + ALPHABET.length + " symbols.";
 
     public static final String DEFAULT_FOLDER = System.getProperty("user.dir") + File.separator + "text" + File.separator;
 
@@ -22,20 +22,19 @@ public class Constants {
 
     public static final int DEFAULT_SHIFT = 3;
 
-    public static final String MENU_TXT = "\nВыберите действие:\n1. Шифровать\n2. Дешифровать\n3. Взлом.\n4. Анализ.\n5. Выйти.\nВведите выбранный пункт меню: ";
-    public static final String ENCODE_TXT = "Введите путь к файлу для шифрования (или нажмите Enter для пути по умолчанию): ";
-    public static final String DECODE_TXT = "Введите путь к файлу для дешифрования (или нажмите Enter для пути по умолчанию): ";
-    public static final String BRUTEFORCE_TXT = "Введите путь к зашифрованному файлу (или нажмите Enter для пути по умолчанию): ";
-    public static final String OUTPUT_TXT = "Введите путь для сохранения результата (или нажмите Enter для использования пути по умолчанию): ";
-    public static final String BRUTEFORCE_OUTPUT_TXT = "Введите путь для сохранения результата взлома (или нажмите Enter для использования пути по умолчанию): ";
-    public static final String KEY_TXT = "Введите ключ (или нажмите Enter для сдвига по умолчанию - 3): ";
-    public static final String INVALID_CHOICE_TXT = "Нет такого пункта, попробуйте снова.";
-    public static final String EXIT_TXT = "Выход из программы...";
+    public static final String MENU_TXT = "\nChose action:\n1. Encode\n2. Decode\n3. Brute Force.\n4. Analisis.\n5. EXIT.\ntype menu number: ";
+    public static final String ENCODE_TXT = "Enter the path to the file to encrypt (or press Enter for the default path): ";
+    public static final String DECODE_TXT = "Enter the path to the file to decrypt (or press Enter for the default path): ";
+    public static final String BRUTEFORCE_TXT = "Enter the path to the encrypted file (or press Enter for the default path): ";
+    public static final String OUTPUT_TXT = "Enter the path to save the result (or press Enter to use the default path): ";
+    public static final String BRUTEFORCE_OUTPUT_TXT = "Enter the path to save the hack result (or press Enter to use the default path): ";
+    public static final String KEY_TXT = "Enter the shift key (or press Enter to shift to default - 3): ";
+    public static final String INVALID_CHOICE_TXT = "There is no such menu item, try again.";
+    public static final String EXIT_TXT = "Exiting the program...";
 
     public static final String ANALYSIS_FILE = DEFAULT_FOLDER + "analysis.txt";
-    public static final String ANALYSE_TXT = "Введите путь к зашифрованному файлу для анализа (или нажмите Enter для использования файла по умолчанию): ";
-    public static final String ANALYSE_OUTPUT_TXT = "Введите путь для сохранения расшифрованного файла (или нажмите Enter для использования файла по умолчанию): ";
-
+    public static final String ANALYSE_TXT = "Enter the path to the encrypted file to analyze (or press Enter to use the default file): ";
+    public static final String ANALYSE_OUTPUT_TXT = "Enter the path to save the decrypted file (or press Enter to use the default file): ";
 
     public static final double PERCENT_OF_TEXT_UNDERSTANDING = 80.0;
 }

@@ -2,6 +2,7 @@ package com.javarush.siberia.commands;
 
 import com.javarush.siberia.cipher.CaesarCipher;
 import com.javarush.siberia.constants.Constants;
+import com.javarush.siberia.constants.ErrorsConstants;
 import com.javarush.siberia.entity.Result;
 import com.javarush.siberia.entity.ResultCode;
 import com.javarush.siberia.utils.DictionaryLoader;
@@ -22,7 +23,7 @@ public class BruteForce implements Action{
             ruWords = DictionaryLoader.loadDictionary(Constants.RU_DICTIONARY_PATH);
             enWords = DictionaryLoader.loadDictionary(Constants.EN_DICTIONARY_PATH);
         } catch (IOException e) {
-            throw new RuntimeException("Ошибка загрузки словаря. Возможно файл отсутствует или повреждён", e);
+            throw new RuntimeException(ErrorsConstants.DICTIONARY_LOAD_FAILURE, e);
         }
     }
 
@@ -36,7 +37,7 @@ public class BruteForce implements Action{
         try {
             text = FileReadWrite.readFile(inputFilePath);
         } catch (IOException e) {
-            return new Result("Не могу прочитать файл", ResultCode.ERROR);
+            return new Result(ErrorsConstants.CANT_READ_FILE, ResultCode.ERROR);
         }
 
         int foundShift = -1;
@@ -45,22 +46,22 @@ public class BruteForce implements Action{
             char[] bruteforcedText = cipher.decrypt(text, shift);
 
             if (isMeaningful(bruteforcedText, ruWords) || isMeaningful(bruteforcedText, enWords)) {
-                foundShift = shift + 1; //это костыль =(
+                foundShift = shift + 1; //i need this for correctly save text with this shift
                 break;
             }
         }
 
         if (foundShift != -1) {
-            char[] shiftedText = cipher.decrypt(text, foundShift); //это костыль =(
+            char[] shiftedText = cipher.decrypt(text, foundShift);
             try {
                 FileReadWrite.writeFile(outputFilePath, shiftedText);
             } catch (IOException e) {
-                return new Result("Ошибка записи в файл", ResultCode.ERROR);
+                return new Result(ErrorsConstants.WRITE_FILE_ERROR, ResultCode.ERROR);
             }
-            System.out.println("Взломанный текст найден и сохранён с ключом сдвига: " + foundShift); // todo переписать выводы
+            System.out.println(ErrorsConstants.UNCIPHER_COMPLITE + foundShift); // todo переписать выводы
             return new Result(new String(shiftedText), ResultCode.OK);
         } else {
-            return new Result("Не удалось понять шифрованный текст, я всего лишь алгоритм. Прикрути мне ИИ!", ResultCode.ERROR);
+            return new Result(ErrorsConstants.CANT_UNDERSTAND_TEXT, ResultCode.ERROR);
         }
     }
 
