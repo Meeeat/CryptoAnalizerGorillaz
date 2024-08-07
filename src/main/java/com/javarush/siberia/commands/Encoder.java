@@ -19,12 +19,13 @@ public class Encoder implements Action{
 
         String inputFilePath = parameters[1];
         String outputFilePath = parameters[2];
+        String shiftParameter = parameters[0];
 
         int shift = Constants.DEFAULT_SHIFT;
 
         if (parameters.length > 0) {
             try {
-                shift = Integer.parseInt(parameters[0]);
+                shift = Integer.parseInt(shiftParameter);
             } catch (NumberFormatException e) {
                 return new Result(ErrorsConstants.NO_NUMBER_FOR_SHIFT, ResultCode.ERROR);
             }
