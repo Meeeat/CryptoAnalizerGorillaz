@@ -10,6 +10,9 @@ public class StartConsoleApp {
         System.out.println("Добро пожаловать в примитивный шифровальщик, который Цезарь завещал.");
         System.out.println(Constants.ALPHABET_LENGTH_TXT);
 
+        //todo переместить сканер
+        //перекинуть в конструктор
+
         ConsoleApplication consoleApplication = new ConsoleApplication();
         ConsoleMenu consoleMenu = new ConsoleMenu(consoleApplication);
         consoleMenu.showMenu();

@@ -1,7 +1,7 @@
 package com.javarush.siberia.controllers;
 
-import com.javarush.khmelov.exception.AppException;
 import com.javarush.siberia.commands.*;
+import com.javarush.siberia.exception.AppException;
 
 public enum Actions {
     ENCODE(new Encoder()),

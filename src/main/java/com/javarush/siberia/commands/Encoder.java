@@ -43,7 +43,7 @@ public class Encoder implements Action{
         try {
             FileReadWrite.writeFile(outputFilePath, encryptedText);
         } catch (IOException e) {
-            return new Result(ErrorsConstants.WRITE_FILE_ERROR, ResultCode.ERROR  );
+            return new Result(ErrorsConstants.WRITE_FILE_ERROR, ResultCode.ERROR);
         }
         return new Result(new String(encryptedText), ResultCode.OK);
     }
